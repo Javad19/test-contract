@@ -28,7 +28,7 @@ This repo allows reproduction of experiments and testing on custom contracts.
 ## Architecture
 The HOGAT workflow is divided into three phases, as shown in Figure 1:
 
-<div align=center><img width="880" height="315" src="./docs/figures/Picture1.tif"/></div>
+<div align=center><img width="880" height="315" src="./docs/figures/Picture1.png"/></div>
 
 **Explanation of the Figure:**
 - **(A) Normalized Smart Contract Code**: Input Solidity code after normalization (e.g., removing comments, standardizing variables/functions like `var1`, `func1`). This step reduces noise and ensures consistency.
