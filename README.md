@@ -28,7 +28,7 @@ This repo allows reproduction of experiments and testing on custom contracts.
 ## Architecture
 The HOGAT workflow is divided into three phases, as shown in Figure 1:
 
-<div align=center><img width="780" height="415" src="./docs/figures/Picture1.png"/></div>
+<div align=center><img width="680" height="415" src="./docs/figures/Picture1.png"/></div>
 
 **Explanation of the Figure:**
 - **(A) Normalized Smart Contract Code**: Input Solidity code after normalization (e.g., removing comments, standardizing variables/functions like `var1`, `func1`). This step reduces noise and ensures consistency.
@@ -48,6 +48,7 @@ This design enables propagation of vulnerability signals across distant nodes, i
 - Additional: NumPy, Scikit-learn, Slither (for parsing Solidity)
 
 This runs normalization, graph building, and prediction.
+
 
 ## Datasets
 - **ESC**: Ethereum contracts for reentrancy/timestamp (~40k contracts).
