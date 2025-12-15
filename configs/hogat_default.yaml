@@ -1,0 +1,42 @@
+# configs/hogat_default.yaml
+# Default hyperparameters for HOGAT model as per paper's experimental setup.
+
+model:
+  name: HOGAT
+  input_dim: 128  # Derived from Contract Graph features
+  hidden_dim: 64
+  output_dim: 5  # 5 vulnerability categories: reentrancy, timestamp, overflow, infinite loop, etc.
+  num_layers: 2
+  num_heads: 8
+  dropout: 0.3
+  k_hops: 2  # Optimal from RQ1
+
+training:
+  learning_rate: 0.005
+  optimizer: Adam
+  optimizer_params:
+    eps: 1e-8
+  batch_size: 64
+  epochs: 100
+  early_stopping: true  # As implied
+  scheduler: ReduceLROnPlateau
+  dropout: 0.3
+
+activation:
+  attention: LeakyReLU  # negative_slope: 0.2
+  intermediate: ELU
+  output: Sigmoid
+  normalization: Softmax  # For attention
+
+data:
+  train_test_split: 0.8  # 80/20
+  num_runs: 10  # Average over 10 runs
+  seed: 42  # For reproducibility
+
+datasets:
+  esc: data/processed/esc
+  vsc: data/processed/vsc
+  solidifi: data/processed/solidifi
+
+evaluation:
+  metrics: [accuracy, precision, recall, f1]

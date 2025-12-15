@@ -1,0 +1,10 @@
+# configs/ablation_hops.yaml
+# Configuration for RQ1: Ablation on number of hops (k=1-4).
+
+inherits: hogat_default.yaml  # Extend default config
+
+ablation:
+  hops: [1, 2, 3, 4]  # Test these k_hops values
+  datasets: [esc_reentrancy, vsc_infinite_loops]  # As per RQ1
+  metrics: [accuracy, precision, recall, f1]
+  num_runs: 10
